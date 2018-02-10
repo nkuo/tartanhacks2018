@@ -1,18 +1,26 @@
 import twitter
 
+api = twitter.Api(consumer_key='Ebmw7OHKTAaOLAH0NVXuFRcf2', consumer_secret='MrqFxkrt92dyiM4d94mMRkEfTnPmV7Ucm10Ck9R2b1oCBoVuXq', access_token_key='962163287122202625-ZDbTdDVycdG7VZJ3pOTHb7AToqMIjNJ',
+access_token_secret='U80hcXCxEQ27EJE9dDgj3yiawIm7ozJEB9xLaAAMigVlC',
+sleep_on_rate_limit=True)
+
 # example of search query
 results = api.GetSearch(
     raw_query="q=%23superbowl&result_type=recent&count=100&lang=en&geocode=40.44,-79.94,30km")
     
-def removeHTML(text):
+def remove(text):
     new = ''
     if "https://" in text:
         i = text.find("https://")
         new = text[:i-1]
+    if "RT" in new:
+        i = text.find("RT")
+        if i < 2:
+            return new[3:]
     return new
 
 for result in results[0:20]:
-    print(removeHTML(result.text))
+    print(remove(result.text))
 
 '''# get top five trend objects
 trends = api.GetTrendsCurrent()[0:5]
