@@ -1,8 +1,6 @@
 import twitter
 
-api = twitter.Api(consumer_key='Ebmw7OHKTAaOLAH0NVXuFRcf2', consumer_secret='MrqFxkrt92dyiM4d94mMRkEfTnPmV7Ucm10Ck9R2b1oCBoVuXq', access_token_key='962163287122202625-ZDbTdDVycdG7VZJ3pOTHb7AToqMIjNJ',
-access_token_secret='U80hcXCxEQ27EJE9dDgj3yiawIm7ozJEB9xLaAAMigVlC',
-sleep_on_rate_limit=True)
+
 
 # example of search query
 results = api.GetSearch(
